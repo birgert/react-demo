@@ -1,25 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Events from "./pages/Events";
+import Login from "./pages/Login";
+import MainLayout from "./layouts/MainLayout";
+import Counter from "./pages/Counter";
+import EventDetail from "./pages/EventDetail";
+import HomeLayout from "./layouts/HomeLayout";
+
+const MainLayoutRoute = ({ children, path }) => {
+  return (
+    <Route path={path}>
+      <MainLayout>{children}</MainLayout>
+    </Route>
+  );
+};
+
+const HomeLayoutRoute = ({ children, path }) => {
+  return (
+    <Route path={path}>
+      <HomeLayout> {children}</HomeLayout>
+    </Route>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <div>
+          <Switch>
+            <MainLayoutRoute path="/counter">
+              <Counter />
+            </MainLayoutRoute>
+            <MainLayoutRoute path="/login">
+              <Login />
+            </MainLayoutRoute>
+            <MainLayoutRoute path="/about">
+              <About />
+            </MainLayoutRoute>
+            <MainLayoutRoute path="/event/:eventId">
+              <EventDetail />
+            </MainLayoutRoute>
+            <MainLayoutRoute path="/event">
+              <Events />
+            </MainLayoutRoute>
+
+            <HomeLayoutRoute path="/">
+              <Home />
+            </HomeLayoutRoute>
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
 }
 
