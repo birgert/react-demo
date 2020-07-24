@@ -9,7 +9,7 @@ function MainLayout({ children }) {
       <Container>
         <NavBar />
 
-        <div>{children}</div>
+        <div className="py-3">{children}</div>
         <Footer />
       </Container>
     </>
