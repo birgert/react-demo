@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
-import Spinner from "react-bootstrap/Spinner";
-
+import Col from "react-bootstrap/Col";
 import EventCard from "../components/EventCard";
+import Spinner from "react-bootstrap/Spinner";
 
 import { getEvents } from "../services/fakeEventService";
 
-function Topics(props) {
+function HomeEvents(props) {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,9 +21,19 @@ function Topics(props) {
       });
   }, []);
 
+  const limitedEvents = events.slice(0, 3);
+
   return (
-    <div>
-      <h2>Events</h2>
+    <>
+      <Row className="p-3">
+        <Col
+          lg="12"
+          className="text-center rounded"
+          style={{ backgroundColor: "#e2e3e5" }}
+        >
+          <h2>Upcoming Events</h2>
+        </Col>
+      </Row>
       {loading ? (
         <Row>
           <Spinner animation="border" role="status">
@@ -32,13 +42,13 @@ function Topics(props) {
         </Row>
       ) : (
         <Row>
-          {events.map((event) => (
+          {limitedEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </Row>
       )}
-    </div>
+    </>
   );
 }
 
-export default Topics;
+export default HomeEvents;

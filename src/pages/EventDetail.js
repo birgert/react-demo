@@ -20,14 +20,14 @@ function EventDetail(props) {
       .catch((err) => {
         console.log("Error: ", err);
       });
-  }, []);
+  }, [eventId]);
 
   return (
     <>
       <Row>
         <Col>
           <Card>
-            <Card.Img variant="top" src="https://picsum.photos/800/300" />
+            <Card.Img variant="top" src={event.image} />
             <Card.Body>
               <Card.Title>{event.name}</Card.Title>
               <Card.Text>

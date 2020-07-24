@@ -5,7 +5,8 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
-import { LinkContainer } from "react-router-bootstrap";
+import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
+import ImageAreaIcon from "mdi-react/ImageAreaIcon";
 
 function NavBar(props) {
   return (
@@ -14,15 +15,17 @@ function NavBar(props) {
         bg="dark"
         variant="dark"
         expand="md"
-        className="border-bottom shadow-sm"
+        className="border-bottom py-0"
       >
-        <Navbar.Brand href="#home">My App</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <ImageAreaIcon size={50} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <LinkContainer to="/">
+            <IndexLinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
+            </IndexLinkContainer>
             <LinkContainer to="/about">
               <Nav.Link>About</Nav.Link>
             </LinkContainer>

@@ -2,14 +2,14 @@ import React from "react";
 
 import Carousel from "react-bootstrap/Carousel";
 
-function MyCarousel(props) {
+function HomeCarousel(props) {
   return (
     <>
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/800/300"
+            src="https://picsum.photos/id/10/800/300"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -20,7 +20,7 @@ function MyCarousel(props) {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/800/300"
+            src="https://picsum.photos/id/1006/800/300"
             alt="Third slide"
           />
 
@@ -32,7 +32,7 @@ function MyCarousel(props) {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://picsum.photos/800/300"
+            src="https://picsum.photos/id/1011/800/300"
             alt="Third slide"
           />
 
@@ -48,4 +48,4 @@ function MyCarousel(props) {
   );
 }
 
-export default MyCarousel;
+export default HomeCarousel;
