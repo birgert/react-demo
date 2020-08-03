@@ -31,7 +31,7 @@ function HomeEvents(props) {
           className="text-center rounded"
           style={{ backgroundColor: "#e2e3e5" }}
         >
-          <h2>Upcoming Events</h2>
+          <h2>Our Upcoming Events</h2>
         </Col>
       </Row>
       {loading ? (
